@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import { generateRandomData } from "../../tools/randomData/GenerateRandomData";
 
 
 
@@ -47,7 +48,7 @@ const Chart: React.FC<Props> = ({ title, subTitle, criteriaText }) => {
             enabled: false,
         },
         tooltip: {
-            pointFormat: "Population in 2021: <b>{point.y:.1f} millions</b>",
+            pointFormat: `${criteriaText}: <b>{point.y:.1f} millions</b>`,
         },
         series: [
             {
@@ -77,28 +78,7 @@ const Chart: React.FC<Props> = ({ title, subTitle, criteriaText }) => {
                     "#03c69b",
                     "#00f194",
                 ],
-                data: [
-                    ["Tokyo", 37.33],
-                    ["Delhi", 31.18],
-                    ["Shanghai", 27.79],
-                    ["Sao Paulo", 22.23],
-                    ["Mexico City", 21.91],
-                    ["Dhaka", 21.74],
-                    ["Cairo", 21.32],
-                    ["Beijing", 20.89],
-                    ["Mumbai", 20.67],
-                    ["Osaka", 19.11],
-                    ["Karachi", 16.45],
-                    ["Chongqing", 16.38],
-                    ["Istanbul", 15.41],
-                    ["Buenos Aires", 15.25],
-                    ["Kolkata", 14.974],
-                    ["Kinshasa", 14.97],
-                    ["Lagos", 14.86],
-                    ["Manila", 14.16],
-                    ["Tianjin", 13.79],
-                    ["Guangzhou", 13.64],
-                ],
+                data: generateRandomData(number),
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
@@ -115,6 +95,10 @@ const Chart: React.FC<Props> = ({ title, subTitle, criteriaText }) => {
             },
         ],
     };
+
+    useEffect(()=>{
+
+    },[number])
 
     return (
         <>
