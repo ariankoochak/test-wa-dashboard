@@ -5,7 +5,15 @@ import { RootState } from "../../store";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
-const Chart: React.FC = () => {
+
+
+type Props = {
+    title: string;
+    subTitle: string;
+};
+
+
+const Chart: React.FC<Props> = ({title,subTitle}) => {
     const number = useSelector((state: RootState) => state.my.myRandomNumber);
 
     const options: Highcharts.Options = {
@@ -13,10 +21,10 @@ const Chart: React.FC = () => {
             type: "column",
         },
         title: {
-            text: "World's largest cities per 2021",
+            text: title,
         },
         subtitle: {
-            text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">World Population Review</a>',
+            text: subTitle,
         },
         xAxis: {
             type: "category",

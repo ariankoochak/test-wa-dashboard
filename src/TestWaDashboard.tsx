@@ -4,11 +4,17 @@ import { store } from "./store";
 import Chart from "./components/Chart/Chart";
 import GetNumber from "./components/GetNumber/GetNumber";
 
-const MyComponent: React.FC = () => {
+type Props = {
+    chartTitle: string;
+    chartSubtitle : string;
+};
+
+
+const MyComponent: React.FC<Props> = ({chartTitle,chartSubtitle}) => {
     return <>
     <Provider store={store}>
         <GetNumber/>
-        <Chart/>
+        <Chart title={chartTitle} subTitle={chartSubtitle}/>
     </Provider>
     </>;
 };
