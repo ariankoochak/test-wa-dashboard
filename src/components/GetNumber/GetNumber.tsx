@@ -14,13 +14,16 @@ const GetNumber: React.FC = () => {
             setCount(e.target.value);
     }
 
-    const handleClickSubmit = ()=>{
+    const handleClickSubmit = (e : any)=>{
+        e.preventDefault();
         dispatch(setRandomNumber(count));
     }
 
     return <div className="input-container">
+        <form onSubmit={handleClickSubmit}>
         <input type="text" value={count} onChange={handleChangeCount}/>
-        <button onClick={handleClickSubmit}>Submit</button>
+        <button type="submit">Submit</button>
+        </form>
     </div>;
 };
 
