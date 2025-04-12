@@ -80,13 +80,18 @@ const Chart: React.FC<Props> = ({ title, subTitle, criteriaText }) => {
 
     },[number])
 
-    return (
-        <>
+    if(number > 0)
+        return (
             <div className="chart-container">
                 <HighchartsReact highcharts={Highcharts} options={options} />
             </div>
-        </>
-    );
+        );
+    else
+        return (
+            <div className="chart-container">
+                <h3>enter valid number</h3>
+            </div>
+        );
 };
 
 export default Chart;
