@@ -1,26 +1,43 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import postcss from "rollup-plugin-postcss";
+import esbuild from "rollup-plugin-esbuild";
 import dts from "rollup-plugin-dts";
+import json from "@rollup/plugin-json";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import fs from "fs";
 
-const packageJson = require("./package.json");
+const pkg = JSON.parse(
+    fs.readFileSync(new URL("./package.json", import.meta.url))
+);
+const esbuildPlugin = esbuild.default ?? esbuild;
 
 export default [
     {
         input: "src/index.ts",
         output: [
             {
-                file: packageJson.module,
+                file: pkg.module,
                 format: "esm",
                 sourcemap: true,
             },
             {
-                file: packageJson.main,
+                file: pkg.main,
                 format: "cjs",
                 sourcemap: true,
             },
         ],
-        plugins: [peerDepsExternal(), resolve(), commonjs()],
+        plugins: [
+            peerDepsExternal(),
+            resolve(),
+            commonjs(),
+            postcss(),
+            json(),
+            esbuildPlugin({
+                jsx: "automatic",
+                target: "esnext",
+            }),
+        ],
     },
     {
         input: "dist/types/index.d.ts",

@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import Chart from "./components/Chart/Chart";
 import GetNumber from "./components/GetNumber/GetNumber";
-import './styles/globals.css'
+
 type Props = {
     chartTitle: string;
     chartSubtitle: string;
