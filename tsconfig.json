@@ -4,6 +4,7 @@
         "declarationDir": "dist/types",
         "emitDeclarationOnly": false,
         "jsx": "react",
+        "lib": ["dom", "esnext"],
         "module": "ESNext",
         "target": "ES5",
         "moduleResolution": "node",
