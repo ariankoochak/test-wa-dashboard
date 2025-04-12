@@ -1,0 +1,40 @@
+{
+    "name": "@ariankoochak/test-wa-dashboard",
+    "version": "1.0.0",
+    "description": "",
+    "homepage": "https://github.com/ariankoochak/test-wa-dashboard#readme",
+    "bugs": {
+        "url": "https://github.com/ariankoochak/test-wa-dashboard/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ariankoochak/test-wa-dashboard.git"
+    },
+    "license": "ISC",
+    "author": "arian koochak",
+    "type": "commonjs",
+    "main": "./src/index.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "rollup -c"
+    },
+    "dependencies": {
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^28.0.3",
+        "@rollup/plugin-node-resolve": "^16.0.1",
+        "@types/react": "^19.1.1",
+        "@types/react-dom": "^19.1.2",
+        "rollup": "^4.40.0",
+        "rollup-plugin-dts": "^6.2.1",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "typescript": "^5.8.3",
+        "vite": "^6.2.6"
+    },
+    "peerDependencies": {
+        "react": "^17.0.0 || ^18.0.0",
+        "react-dom": "^17.0.0 || ^18.0.0"
+    }
+}
