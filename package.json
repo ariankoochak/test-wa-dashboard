@@ -19,8 +19,12 @@
         "build": "rollup -c"
     },
     "dependencies": {
-        "react": "^19.1.0",
-        "react-dom": "^19.1.0"
+        "@reduxjs/toolkit": "^2.6.1",
+        "highcharts": "^12.2.0",
+        "highcharts-react-official": "^3.2.1",
+        "react": "^17.0.0 || ^18.0.0",
+        "react-dom": "^17.0.0 || ^18.0.0",
+        "react-redux": "^9.2.0"
     },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^28.0.3",
