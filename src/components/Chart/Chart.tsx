@@ -17,6 +17,16 @@ type Props = {
 
 
 const Chart: React.FC<Props> = ({ title, subTitle, criteriaText }) => {
+    const chartContainerStyle: React.CSSProperties = {
+        flex: 2,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "gray",
+        borderRadius: "8px",
+        padding: "2rem",
+        margin: "1px",
+    };
     const number = useSelector((state: RootState) => state.my.myRandomNumber);
 
     const options: Highcharts.Options = {
@@ -78,7 +88,7 @@ const Chart: React.FC<Props> = ({ title, subTitle, criteriaText }) => {
 
     if(number > 0)
         return (
-            <div className="chart-container">
+            <div className="chart-container" style={chartContainerStyle}>
                 <HighchartsReact
                     highcharts={Highcharts}
                     options={options}
@@ -90,7 +100,7 @@ const Chart: React.FC<Props> = ({ title, subTitle, criteriaText }) => {
         );
     else
         return (
-            <div className="chart-container">
+            <div className="chart-container" style={chartContainerStyle}>
                 <h3>enter valid number</h3>
             </div>
         );

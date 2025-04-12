@@ -13,6 +13,7 @@ type Props = {
 };
 
 
+
 const TestWaDashboard: React.FC<Props> = ({
     chartTitle,
     chartSubtitle,
@@ -20,10 +21,17 @@ const TestWaDashboard: React.FC<Props> = ({
     height,
     width,
 }) => {
+    const mainContainerStyle = {
+        display: "flex",
+        overflow: "hidden",
+        height: height < 460 ? 460 : height,
+        width: width < 500 ? 500 : width,
+    };
+
     return (
         <>
             <Provider store={store}>
-                <div className="main-container" style={{height:height < 460 ? 460 : height,width:width < 500 ? 500 : width}}>
+                <div className="main-container" style={mainContainerStyle}>
                     <GetNumber />
                     <Chart
                         title={chartTitle}
