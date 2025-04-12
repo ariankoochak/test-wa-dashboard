@@ -11,7 +11,7 @@ type Props = {
 };
 
 
-const MyComponent: React.FC<Props> = ({
+const TestWaDashboard: React.FC<Props> = ({
     chartTitle,
     chartSubtitle,
     chartCriteriaText,
@@ -30,4 +30,4 @@ const MyComponent: React.FC<Props> = ({
     );
 };
 
-export default MyComponent;
+export default TestWaDashboard;
