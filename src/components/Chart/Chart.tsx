@@ -10,10 +10,11 @@ import HighchartsReact from "highcharts-react-official";
 type Props = {
     title: string;
     subTitle: string;
+    criteriaText : string;
 };
 
 
-const Chart: React.FC<Props> = ({title,subTitle}) => {
+const Chart: React.FC<Props> = ({ title, subTitle, criteriaText }) => {
     const number = useSelector((state: RootState) => state.my.myRandomNumber);
 
     const options: Highcharts.Options = {
@@ -39,7 +40,7 @@ const Chart: React.FC<Props> = ({title,subTitle}) => {
         yAxis: {
             min: 0,
             title: {
-                text: "Population (millions)",
+                text: criteriaText,
             },
         },
         legend: {
