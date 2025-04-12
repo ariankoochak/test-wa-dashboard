@@ -3,11 +3,13 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import Chart from "./components/Chart/Chart";
 import GetNumber from "./components/GetNumber/GetNumber";
-
+import './styles/globals.css'
 type Props = {
     chartTitle: string;
     chartSubtitle: string;
-    chartCriteriaText : string;
+    chartCriteriaText: string;
+    height : number;
+    width: number;
 };
 
 
@@ -15,16 +17,20 @@ const TestWaDashboard: React.FC<Props> = ({
     chartTitle,
     chartSubtitle,
     chartCriteriaText,
+    height,
+    width,
 }) => {
     return (
         <>
             <Provider store={store}>
-                <GetNumber />
-                <Chart
-                    title={chartTitle}
-                    subTitle={chartSubtitle}
-                    criteriaText={chartCriteriaText}
-                />
+                <div className="main-container" style={{height:height < 460 ? 460 : height,width:width < 500 ? 500 : width}}>
+                    <GetNumber />
+                    <Chart
+                        title={chartTitle}
+                        subTitle={chartSubtitle}
+                        criteriaText={chartCriteriaText}
+                        />
+                </div>
             </Provider>
         </>
     );

@@ -79,7 +79,13 @@ const Chart: React.FC<Props> = ({ title, subTitle, criteriaText }) => {
     if(number > 0)
         return (
             <div className="chart-container">
-                <HighchartsReact highcharts={Highcharts} options={options} />
+                <HighchartsReact
+                    highcharts={Highcharts}
+                    options={options}
+                    containerProps={{
+                        style: { width: "100%", height: "100%" },
+                    }}
+                />
             </div>
         );
     else
