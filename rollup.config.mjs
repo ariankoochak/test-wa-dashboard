@@ -3,8 +3,6 @@ import commonjs from "@rollup/plugin-commonjs";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import dts from "rollup-plugin-dts";
 
-import path from "path";
-
 const packageJson = require("./package.json");
 
 export default [
