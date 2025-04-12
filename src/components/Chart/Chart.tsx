@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
@@ -75,10 +75,6 @@ const Chart: React.FC<Props> = ({ title, subTitle, criteriaText }) => {
             },
         ],
     };
-
-    useEffect(()=>{
-
-    },[number])
 
     if(number > 0)
         return (
